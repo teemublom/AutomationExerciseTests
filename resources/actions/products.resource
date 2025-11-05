@@ -1,0 +1,61 @@
+*** Settings ***
+Library     Browser
+Resource    ../pageobjects/common.resource
+Resource    ../pageobjects/cart.resource
+Resource    ../pageobjects/products.resource
+Resource    ../pageobjects/product_details.resource
+
+
+*** Keywords ***
+Click Products Tab Link And Verify Products Page And List Are Visible
+    Click Products Tab Link
+    Verify All Products Text Is Visible
+    Verify Products List Is Visible
+
+Click First Products View Product And Verify Product Details Are Visible
+    Click First Products View Product Button
+    Verify Product Information Element Is Visible
+    Verify Product Name Is Visible
+    Verify Product Category Is Visible
+    Verify Product Price Is Visible
+    Verify Product Availability Is Visible
+    Verify Product Brand Is Visible
+
+Fill Search Term Into Product Search And Click Search Button
+    [Arguments]    ${search_term}
+    Fill Search Term Into Product Search    ${search_term}
+    Click Submit Search Button
+
+Verify Searched Products Text And All Products Related To Search Are Visible
+    [Arguments]    ${expected_product_name}
+    Verify Searched Products Text Is Visible
+    Verify Search Results Contain Product    ${expected_product_name}
+
+Add Product To Cart
+    [Documentation]    Adds the N:th product to cart.
+    ...    Returns product name and price in a dictionary
+    [Arguments]    ${Nth_product}
+    VAR    ${product_path}     //div[@class="features_items"]/div[@class="col-sm-4"][${Nth_product}]/div/div/div
+    ${product_name}    Get Text    ${product_path}/p
+    ${product_price}    Get Text    ${product_path}/h2
+    VAR    &{product_info}    name=${product_name}    price=${product_price}    qty=1
+    Hover    ${product_path}/a
+    Sleep    1
+    Click    ${product_path}/a
+    RETURN    ${product_info}
+
+Add N Of A Product To Cart
+    [Arguments]    ${n}
+    Click First Products View Product Button
+    Verify Product Information Element Is Visible
+    Change Product Quantity    ${n}
+    Click Add To Cart
+    
+
+Verify Cart Contents
+    [Arguments]    ${expected_cart_contents}
+    VAR    ${index}    0
+    FOR    ${item}    IN    @{expected_cart_contents}
+        ${index}    Evaluate    ${index} + 1
+        Verify Single Product    ${item}    ${index}
+    END
