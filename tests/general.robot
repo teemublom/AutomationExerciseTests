@@ -2,8 +2,7 @@
 Resource            ../resources/common.resource
 Resource            ../resources/pageobjects/common.resource
 Resource            ../resources/actions/general.resource
-
-Variables    ../resources/login_info.yaml
+Variables           ../resources/login_info.yaml
 
 Test Setup          Open Automation Exercise Page
 Test Teardown       Common Test Teardown

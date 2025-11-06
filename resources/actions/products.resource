@@ -35,7 +35,7 @@ Add Product To Cart
     [Documentation]    Adds the N:th product to cart.
     ...    Returns product name and price in a dictionary
     [Arguments]    ${Nth_product}
-    VAR    ${product_path}     //div[@class="features_items"]/div[@class="col-sm-4"][${Nth_product}]/div/div/div
+    VAR    ${product_path}    //div[@class="features_items"]/div[@class="col-sm-4"][${Nth_product}]/div/div/div
     ${product_name}    Get Text    ${product_path}/p
     ${product_price}    Get Text    ${product_path}/h2
     VAR    &{product_info}    name=${product_name}    price=${product_price}    qty=1
@@ -50,7 +50,6 @@ Add N Of A Product To Cart
     Verify Product Information Element Is Visible
     Change Product Quantity    ${n}
     Click Add To Cart
-    
 
 Verify Cart Contents
     [Arguments]    ${expected_cart_contents}

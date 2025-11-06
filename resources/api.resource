@@ -1,6 +1,6 @@
 *** Settings ***
-Library    Collections
-Library    RequestsLibrary
+Library     Collections
+Library     RequestsLibrary
 
 
 *** Keywords ***

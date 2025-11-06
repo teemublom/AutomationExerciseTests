@@ -29,9 +29,24 @@ Enter Email Address And Password To Login And Click Login Button
 
 Enter All Account Information
     [Arguments]    ${acc_info}
-    Verify Signup Page Is Visible And Enter Account Information    title=${acc_info}[title]    name=${acc_info}[name]    password=${acc_info}[password]    day=${acc_info}[birth_date]    month=${acc_info}[birth_month]    year=${acc_info}[birth_year]
-    Enter Address Information    first_name=${acc_info}[firstname]    last_name=${acc_info}[lastname]    company=${acc_info}[company]    address1=${acc_info}[address1]    address2=${acc_info}[address2]    country=${acc_info}[country]    state=${acc_info}[state]    city=${acc_info}[city]    zipcode=${acc_info}[zipcode]    mobile_number=${acc_info}[mobile_number]
-    
+    Verify Signup Page Is Visible And Enter Account Information
+    ...    title=${acc_info}[title]
+    ...    name=${acc_info}[name]
+    ...    password=${acc_info}[password]
+    ...    day=${acc_info}[birth_date]
+    ...    month=${acc_info}[birth_month]
+    ...    year=${acc_info}[birth_year]
+    Enter Address Information
+    ...    first_name=${acc_info}[firstname]
+    ...    last_name=${acc_info}[lastname]
+    ...    company=${acc_info}[company]
+    ...    address1=${acc_info}[address1]
+    ...    address2=${acc_info}[address2]
+    ...    country=${acc_info}[country]
+    ...    state=${acc_info}[state]
+    ...    city=${acc_info}[city]
+    ...    zipcode=${acc_info}[zipcode]
+    ...    mobile_number=${acc_info}[mobile_number]
 
 Verify Login
     [Arguments]    ${username}

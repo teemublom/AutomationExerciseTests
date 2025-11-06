@@ -5,6 +5,7 @@ Library     Browser
 *** Variables ***
 ${NAVBARLOCATOR}    //ul[@class="nav navbar-nav"]/li/a
 
+
 *** Keywords ***
 Click Signup Tab Link
     Click    //a[@href="/login"]

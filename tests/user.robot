@@ -2,7 +2,6 @@
 Resource            ../resources/common.resource
 Resource            ../resources/actions/login.resource
 Resource            ../resources/api.resource
-
 Variables           ../resources/login_info.yaml
 
 Test Teardown       Common Test Teardown
