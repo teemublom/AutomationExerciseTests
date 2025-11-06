@@ -52,6 +52,8 @@ Add N Of A Product To Cart
     Click Add To Cart
 
 Verify Cart Contents
+    [Documentation]    Takes in a list of dicts where each entry in the list is the info of a product expected to be in the cart.
+    ...    Currently expects products to be in the cart in the order they were added.
     [Arguments]    ${expected_cart_contents}
     VAR    ${index}    0
     FOR    ${item}    IN    @{expected_cart_contents}
