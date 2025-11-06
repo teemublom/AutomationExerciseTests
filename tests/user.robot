@@ -8,13 +8,6 @@ Variables           ../resources/login_info.yaml
 Test Teardown       Common Test Teardown
 
 
-*** Variables ***
-${DEFAULT_USERNAME}     ${DEFAULT_ACCOUNT_INFO}[name]
-${DEFAULT_EMAIL}        ${DEFAULT_ACCOUNT_INFO}[email]
-${DEFAULT_PASSWORD}     ${DEFAULT_ACCOUNT_INFO}[password]
-&{DEFAULT_LOGIN_INFO}    email=${DEFAULT_EMAIL}    password=${DEFAULT_PASSWORD}
-
-
 *** Test Cases ***
 Register New User
     Signup Test Setup

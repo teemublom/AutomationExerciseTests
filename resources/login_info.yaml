@@ -1,8 +1,14 @@
+DEFAULT_USERNAME: &username matti
+DEFAULT_EMAIL: &email matti.meikalainen@gmail.com
+DEFAULT_PASSWORD: &password '12345'
+DEFAULT_LOGIN_INFO:
+  email: *email
+  password: *password
 DEFAULT_ACCOUNT_INFO:
   title: Mr
-  name: matti
-  email: matti.meikalainen@gmail.com
-  password: '12345'
+  name: *username
+  email: *email
+  password: *password
   birth_date: '1'
   birth_month: January
   birth_year: '1970'
