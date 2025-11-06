@@ -18,24 +18,7 @@ ${DEFAULT_PASSWORD}     ${DEFAULT_ACCOUNT_INFO}[password]
 *** Test Cases ***
 Register New User
     Signup Test Setup
-    Verify Signup Page Is Visible And Enter Account Information
-    ...    title=Mr
-    ...    name=${DEFAULT_USERNAME}
-    ...    password=${DEFAULT_PASSWORD}
-    ...    day=1
-    ...    month=January
-    ...    year=1970
-    Enter Address Information
-    ...    first_name=Matti
-    ...    last_name=Meikalainen
-    ...    company=Itella
-    ...    address1=Mannerheimintie 5
-    ...    address2=${EMPTY}
-    ...    country=United States
-    ...    state=New York
-    ...    city=New York City
-    ...    zipcode=07008
-    ...    mobile_number=347 218 5275
+    Enter All Account Information    ${DEFAULT_ACCOUNT_INFO}
     Click Create Account
     Click Continue Button
     Verify Login    ${DEFAULT_USERNAME}
