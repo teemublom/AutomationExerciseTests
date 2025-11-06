@@ -24,7 +24,7 @@ Test Contact Us Form
     ...    email=${EMAIL}
     ...    subject=Feedback
     ...    message=Hello I have some feedback
-    ...    filename=upload_test.txt
+    ...    filename=README.md
 
 Test Subscription Form On Home Page
     Fill Subscription Form And Click Subscription Button    ${EMAIL}
