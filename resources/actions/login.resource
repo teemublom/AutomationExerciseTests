@@ -101,7 +101,7 @@ Enter Address Information
 
 Common Signup Procedure
     [Arguments]    ${account_info}
-    Enter Name And Email Address To Signup And Click Signup Button    ${account_info}[name]    ${account_info}[email]
+    Enter Signup Info And Click Signup    ${account_info}[name]    ${account_info}[email]
     Enter All Account Information    ${account_info}
     Click Create Account
     Click Continue Button
