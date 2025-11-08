@@ -99,6 +99,14 @@ Enter Address Information
     Fill Zipcode    zipcode=${zipcode}
     Fill Mobile Number    mobile_number=${mobile_number}
 
+Common Signup Procedure
+    [Arguments]    ${account_info}
+    Enter Name And Email Address To Signup And Click Signup Button    ${account_info}[name]    ${account_info}[email]
+    Enter All Account Information    ${account_info}
+    Click Create Account
+    Click Continue Button
+    Verify Login    ${account_info}[name]
+
 Click Create Account
     Click Create Account Button
     Verify Account Created Text Is Visible

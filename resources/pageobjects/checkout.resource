@@ -26,3 +26,4 @@ Enter Order Comment
 
 Click Place Order
     Click    //a[@href="/payment"]
+

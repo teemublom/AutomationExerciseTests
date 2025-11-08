@@ -2,6 +2,7 @@
 Library     Browser
 Resource    ../pageobjects/common.resource
 Resource    ../pageobjects/cart.resource
+Resource    ../pageobjects/checkout.resource
 Resource    ../pageobjects/products.resource
 Resource    ../pageobjects/product_details.resource
 
@@ -64,3 +65,9 @@ Verify Cart Contents
 Go To Cart
     Click Cart Tab Link
     Verify Cart Page Is Visible
+
+Verify Checkout
+    [Arguments]    ${acc_info}    ${expected_products}    ${comment}
+    Verify Delivery Address    ${acc_info}
+    Verify Cart Contents    ${expected_products}
+    Enter Order Comment    ${comment}

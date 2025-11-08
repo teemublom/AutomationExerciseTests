@@ -10,6 +10,7 @@ Variables            ../resources/card_info.yaml
 Test Setup          Open Automation Exercise Page
 Test Teardown       Common Test Teardown
 
+
 *** Variables ***
 ${ORDER_COMMENT}    Test comment
 
@@ -23,18 +24,17 @@ Place Order And Register While Checkout
     Go To Cart
     Click Proceed To Checkout
     Click Modal RegisterLogin Link
-    Enter Name And Email Address To Signup And Click Signup Button    ${DEFAULT_USERNAME}    ${DEFAULT_EMAIL}
-    Enter All Account Information    ${DEFAULT_ACCOUNT_INFO}
-    Click Create Account
-    Click Continue Button
-    Verify Login    ${DEFAULT_USERNAME}
+    Common Signup Procedure    ${DEFAULT_ACCOUNT_INFO}
     Click Cart Tab Link
     Click Proceed To Checkout
-    Verify Delivery Address    ${DEFAULT_ACCOUNT_INFO}
-    Verify Cart Contents    ${expected_products}
-    Enter Order Comment    ${ORDER_COMMENT}
+    Verify Checkout    ${DEFAULT_ACCOUNT_INFO}    ${expected_products}    ${ORDER_COMMENT}
     Click Place Order
     Enter Card Info    ${CARD_INFO}
     Click Pay And Confirm Order
     Verify Order Success Message
     Click Delete Account
+
+Place Order And Register Before Checkout
+    Click Signup Tab Link And Verify Login Page Is Visible
+    Common Signup Procedure    ${DEFAULT_ACCOUNT_INFO}
+
