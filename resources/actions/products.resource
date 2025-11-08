@@ -10,7 +10,7 @@ Resource    ../pageobjects/payment.resource
 
 
 *** Keywords ***
-Click Products Tab Link And Verify Products Page And List Are Visible
+Click Products Tab Link And Verify
     Click Products Tab Link
     Verify All Products Text Is Visible
     Verify Products List Is Visible
@@ -77,7 +77,7 @@ Verify Cart Contents
         Verify Single Product    ${item}    ${index}
     END
 
-Go To Cart
+Go To Cart Page
     Click Cart Tab Link
     Verify Cart Page Is Visible
 

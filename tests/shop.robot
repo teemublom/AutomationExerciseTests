@@ -31,7 +31,7 @@ Add Quantity Of Product In Cart
 
 Remove Products From Cart
     ${expected_products}    Add Products To Cart    1   3
-    Go To Cart
+    Go To Cart Page
     Delete Product From Cart    1
     Product Not In Cart    ${expected_products}[0][name]
 
@@ -46,4 +46,4 @@ View Brand Products
 *** Keywords ***
 Shop Test Setup
     Open Automation Exercise Page
-    Click Products Tab Link And Verify Products Page And List Are Visible
+    Click Products Tab Link And Verify

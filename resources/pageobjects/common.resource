@@ -3,12 +3,12 @@ Library     Browser
 
 
 *** Variables ***
-${NAVBARLOCATOR}    //ul[@class="nav navbar-nav"]/li/a
+${NAVBARLOCATOR}    //ul[@class="nav navbar-nav"]
 
 
 *** Keywords ***
 Click Signup Tab Link
-    Click    //a[@href="/login"]
+    Click    ${NAVBARLOCATOR} >> //a[@href="/login"]
 
 Click Modal Continue Shopping
     Click    text=Continue Shopping
