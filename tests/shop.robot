@@ -29,6 +29,12 @@ Add Quantity Of Product In Cart
     VAR    @{expected_products}    ${product}
     Verify Cart Contents    ${expected_products}
 
+Remove Products From Cart
+    ${expected_products}    Add Products To Cart    1   3
+    Go To Cart
+    Delete Product From Cart    1
+    Product Not In Cart    ${expected_products}[0][name]
+
 
 *** Keywords ***
 Shop Test Setup

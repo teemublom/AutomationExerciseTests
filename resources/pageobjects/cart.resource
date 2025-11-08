@@ -5,7 +5,7 @@ Library     Browser
 *** Keywords ***
 Verify Single Product
     [Arguments]    ${expected_product_info}    ${expected_row_id}
-    VAR    ${productpath}    //table[contains(@class, table-condensed)]/tbody/tr[${expected_row_id}]
+    VAR    ${productpath}    //table[contains(@class, "table-condensed")]/tbody/tr[${expected_row_id}]
     Get Text    ${productpath}/td[@class="cart_description"]/h4/a    equals    ${expected_product_info}[name]
     Get Text    ${productpath}/td[@class="cart_price"]/p    equals    ${expected_product_info}[price]
     Get Text    ${productpath}/td[@class="cart_quantity"]/button    equals    ${expected_product_info}[qty]
@@ -18,3 +18,11 @@ Click Proceed To Checkout
 
 Click Modal RegisterLogin Link
     Click    //div[contains(@class, "modal-dialog")] >> //a[@href="/login"]
+
+Delete Product From Cart
+    [Arguments]    ${index}
+    Click    //table[contains(@class, "table-condensed")]/tbody/tr[${index}] >> //a[@class="cart_quantity_delete"]
+
+Product Not In Cart
+    [Arguments]    ${product_name}
+    Get Element Count    text=${product_name}    equals    ${0}
