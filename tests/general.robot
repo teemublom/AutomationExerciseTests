@@ -30,3 +30,9 @@ Test Subscription Form On Cart Page
 
 Test Yaml Variable File
     Log    ${DEFAULT_ACCOUNT_INFO}
+
+View Category Products
+    Verify Categories Are Visible
+    Navigate To Subcategory    Women    Dress    Women - Dress Products
+    Navigate To Subcategory    Men    Tshirts    Men - Tshirts Products
+

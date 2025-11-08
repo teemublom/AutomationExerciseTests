@@ -3,6 +3,7 @@ Library     Browser
 Resource    ../pageobjects/test_cases.resource
 Resource    ../pageobjects/common.resource
 Resource    ../pageobjects/contact_us.resource
+Resource    ../pageobjects/home.resource
 
 
 *** Keywords ***
@@ -30,3 +31,9 @@ Fill Subscription Form And Click Subscription Button
     Fill Email Into Subscription Field    ${email}
     Click Submit Subscription Button
     Verify Successful Subscription Message Is Visible
+
+Navigate To Subcategory
+    [Arguments]    ${category_name}    ${subcategory_name}    ${category_title}
+    Expand Category    ${category_name}
+    Click Subcategory    ${category_name}    ${subcategory_name}
+    Verify Category Title Is Visible    ${category_title}
