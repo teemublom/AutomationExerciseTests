@@ -6,6 +6,7 @@ Resource    ../pageobjects/cart.resource
 Resource    ../pageobjects/checkout.resource
 Resource    ../pageobjects/products.resource
 Resource    ../pageobjects/product_details.resource
+Resource    ../pageobjects/payment.resource
 
 
 *** Keywords ***
@@ -86,3 +87,12 @@ Verify Checkout
     Verify Delivery Address    ${acc_info}
     Verify Cart Contents    ${expected_products}
     Enter Order Comment    ${comment}
+
+Common Checkout Procedure
+    [Arguments]    ${acc_info}    ${expected_products}    ${comment}    ${card_info}
+    Click Proceed To Checkout
+    Verify Checkout    ${acc_info}    ${expected_products}    ${comment}
+    Click Place Order
+    Enter Card Info    ${card_info}
+    Click Pay And Confirm Order
+    Verify Order Success Message

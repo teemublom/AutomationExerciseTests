@@ -2,8 +2,6 @@
 Resource            ../resources/common.resource
 Resource            ../resources/actions/products.resource
 Resource            ../resources/actions/login.resource
-Resource            ../resources/pageobjects/checkout.resource
-Resource            ../resources/pageobjects/payment.resource
 Variables            ../resources/login_info.yaml
 Variables            ../resources/card_info.yaml
 
@@ -22,13 +20,8 @@ Place Order And Register While Checkout
     Click Proceed To Checkout
     Click Modal RegisterLogin Link
     Common Signup Procedure    ${DEFAULT_ACCOUNT_INFO}
-    Click Cart Tab Link
-    Click Proceed To Checkout
-    Verify Checkout    ${DEFAULT_ACCOUNT_INFO}    ${expected_products}    ${ORDER_COMMENT}
-    Click Place Order
-    Enter Card Info    ${CARD_INFO}
-    Click Pay And Confirm Order
-    Verify Order Success Message
+    Go To Cart
+    Common Checkout Procedure    ${DEFAULT_ACCOUNT_INFO}    ${expected_products}    ${ORDER_COMMENT}    ${CARD_INFO}
     Click Delete Account
 
 Place Order And Register Before Checkout
@@ -36,5 +29,5 @@ Place Order And Register Before Checkout
     Common Signup Procedure    ${DEFAULT_ACCOUNT_INFO}
     ${expected_products}    Add Products To Cart    3    4
     Go To Cart
-    Click Proceed To Checkout
-    Verify Checkout    ${DEFAULT_ACCOUNT_INFO}    ${expected_products}    ${ORDER_COMMENT}
+    Common Checkout Procedure    ${DEFAULT_ACCOUNT_INFO}    ${expected_products}    ${ORDER_COMMENT}    ${CARD_INFO}
+    Click Delete Account
