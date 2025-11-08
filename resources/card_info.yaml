@@ -1,0 +1,7 @@
+CARD_INFO:
+  firstname: Matti
+  lastname: Meikalainen
+  cardnumber: '12345678'
+  cvc: '321'
+  expiration_month: '5'
+  expiration_year: '2026'

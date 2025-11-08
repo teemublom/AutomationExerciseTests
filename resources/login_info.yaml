@@ -16,7 +16,7 @@ DEFAULT_ACCOUNT_INFO:
   lastname: Meikalainen
   company: Itella
   address1: Mannerheimintie 5
-  address2: null
+  address2: ''
   country: United States
   state: New York
   city: New York City

@@ -19,7 +19,7 @@ Add Products In Cart
     Click Modal Continue Shopping
     ${prod2}    Add Product To Cart    2
     Click Modal View Cart
-    @{expected_products}    Create List    ${prod1}    ${prod2}
+    VAR    @{expected_products}    ${prod1}    ${prod2}
     Verify Cart Contents    ${expected_products}
 
 Add Quantity Of Product In Cart
@@ -28,7 +28,6 @@ Add Quantity Of Product In Cart
     VAR    &{product}    name=Blue Top    price=Rs. 500    qty=4
     VAR    @{expected_products}    ${product}
     Verify Cart Contents    ${expected_products}
-
 
 *** Keywords ***
 Shop Test Setup

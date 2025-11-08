@@ -60,3 +60,7 @@ Verify Cart Contents
         ${index}    Evaluate    ${index} + 1
         Verify Single Product    ${item}    ${index}
     END
+
+Go To Cart
+    Click Cart Tab Link
+    Verify Cart Page Is Visible
