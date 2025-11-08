@@ -23,3 +23,9 @@ Click Subcategory
 Verify Category Title Is Visible
     [Arguments]    ${title}
     Wait For Elements State    text=${title}
+
+Scroll To Recommended Items
+    Scroll To Element    //div[@id="recommended-item-carousel"]
+
+Click A Recommended Item
+    Click    //div[@id="recommended-item-carousel"] >> //div[@class="item active"]/div[1] >> text=Add to cart

@@ -67,6 +67,17 @@ Add N Of A Product To Cart
     Change Product Quantity    ${n}
     Click Add To Cart
 
+Add Recommended Item To Cart
+    [Documentation]    Adds the N:th product to cart.
+    ...    Returns product name and price in a dictionary
+    [Arguments]    ${Nth_product}
+    VAR    ${product_path}    //div[@id="recommended-item-carousel"] >> //div[@class="item active"]/div[${Nth_product}]/div/div/div
+    ${product_name}    Get Text    ${product_path}/p
+    ${product_price}    Get Text    ${product_path}/h2
+    VAR    &{product_info}    name=${product_name}    price=${product_price}    qty=1
+    Click    ${product_path}/a
+    RETURN    ${product_info}
+
 Verify Cart Contents
     [Documentation]    Takes in a list of dicts where each entry in the list is the info of a product expected to be in the cart.
     ...    Currently expects products to be in the cart in the order they were added.

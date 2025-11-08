@@ -1,6 +1,6 @@
 *** Settings ***
 Resource            ../resources/common.resource
-Resource            ../resources/pageobjects/common.resource
+Resource            ../resources/actions/products.resource
 Resource            ../resources/actions/general.resource
 Variables           ../resources/login_info.yaml
 
@@ -28,11 +28,14 @@ Test Subscription Form On Cart Page
     Click Cart Tab Link
     Fill Subscription Form And Click Subscription Button    ${DEFAULT_EMAIL}
 
-Test Yaml Variable File
-    Log    ${DEFAULT_ACCOUNT_INFO}
-
 View Category Products
     Verify Categories Are Visible
     Navigate To Subcategory    Women    Dress    Women - Dress Products
     Navigate To Subcategory    Men    Tshirts    Men - Tshirts Products
 
+Add Recommended Item
+    Scroll To Recommended Items
+    ${product1}    Add Recommended Item To Cart    1
+    VAR    @{expected_items}    ${product1}
+    Click Modal View Cart
+    Verify Cart Contents    ${expected_items}
