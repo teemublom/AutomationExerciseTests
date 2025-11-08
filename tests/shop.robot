@@ -29,6 +29,7 @@ Add Quantity Of Product In Cart
     VAR    @{expected_products}    ${product}
     Verify Cart Contents    ${expected_products}
 
+
 *** Keywords ***
 Shop Test Setup
     Open Automation Exercise Page

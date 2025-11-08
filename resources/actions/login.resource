@@ -14,13 +14,13 @@ Click Signup Tab Link And Verify Login Page Is Visible
     Verify Login Is Visible
     Verify Signup Is Visible
 
-Enter Name And Email Address To Signup And Click Signup Button
+Enter Signup Info And Click Signup
     [Arguments]    ${name}    ${email}
     Enter Signup Name    ${name}
     Enter Signup Email    ${email}
     Click Signup Button
 
-Enter Email Address And Password To Login And Click Login Button
+Enter Login Info And Click Login
     [Arguments]    ${email}    ${password}
     Verify Login Is Visible
     Enter Login Email    ${email}

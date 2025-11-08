@@ -59,7 +59,6 @@ Add Products To Cart
         Append To List    ${product_list}    ${product}
     END
     RETURN    ${product_list}
-    
 
 Add N Of A Product To Cart
     [Arguments]    ${n}

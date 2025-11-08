@@ -22,17 +22,15 @@ Register User With Existing Email
     Verify Error Email Address Already Exist Is Visible
     Delete Account With API    ${DEFAULT_LOGIN_INFO}
 
-Login With Existing Account And Logout User
+Login With Existing Account And Logout
     Create Account With API    ${DEFAULT_ACCOUNT_INFO}
     Login Test Setup
-    Verify Login    ${DEFAULT_USERNAME}
     Click Logout Button
     Delete Account With API    ${DEFAULT_LOGIN_INFO}
 
 Login With Existing Account And Delete Account
     Create Account With API    ${DEFAULT_ACCOUNT_INFO}
     Login Test Setup
-    Verify Login    ${DEFAULT_USERNAME}
     Click Delete Account
 
 Login With Incorrect Account Credentials
@@ -45,10 +43,11 @@ Signup Test Setup
     [Arguments]    ${name}=${DEFAULT_USERNAME}    ${email}=${DEFAULT_EMAIL}
     Open Automation Exercise Page
     Click Signup Tab Link And Verify Login Page Is Visible
-    Enter Name And Email Address To Signup And Click Signup Button    ${name}    ${email}
+    Enter Signup Info And Click Signup    ${name}    ${email}
 
 Login Test Setup
     [Arguments]    ${email}=${DEFAULT_EMAIL}    ${password}=${DEFAULT_PASSWORD}
     Open Automation Exercise Page
     Click Signup Tab Link And Verify Login Page Is Visible
-    Enter Email Address And Password To Login And Click Login Button    ${email}    ${password}
+    Enter Login Info And Click Login    ${email}    ${password}
+    Verify Login    ${DEFAULT_USERNAME}
