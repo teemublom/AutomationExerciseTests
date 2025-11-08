@@ -35,6 +35,13 @@ Remove Products From Cart
     Delete Product From Cart    1
     Product Not In Cart    ${expected_products}[0][name]
 
+View Brand Products
+    Verify Product Brands Are Visible
+    Click Brand    Madame
+    Verify Brand Page Title Is Visible    Brand - Madame Products
+    Click Brand    Polo
+    Verify Brand Page Title Is Visible    Brand - Polo Products
+
 
 *** Keywords ***
 Shop Test Setup
