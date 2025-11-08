@@ -30,3 +30,18 @@ Change Product Quantity
 
 Click Add To Cart
     Click    text=Add to cart
+
+Verify Write Your Review Is Visible
+    Wait For Elements State    text=Write Your Review
+
+Enter Review Details
+    [Arguments]    ${name}    ${email}    ${review}
+    Fill Text    //input[@id="name"]    ${name}
+    Fill Text    //input[@id="email"]    ${email}
+    Fill Text    //textarea[@id="review"]    ${review}
+
+Click Submit Review
+    Click    //button[@id="button-review"]
+
+Verify Review Success Message
+    Wait For Elements State    text=Thank you for your review.

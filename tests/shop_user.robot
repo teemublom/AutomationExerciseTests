@@ -56,3 +56,10 @@ Search Products And Verify Cart After Login
     Go To Cart Page
     Verify Cart Contents    ${expected_products}
     Delete Account With API    ${DEFAULT_LOGIN_INFO}
+
+Add Review On Product
+    Click First Products View Product Button
+    Verify Write Your Review Is Visible
+    Enter Review Details    ${DEFAULT_ACCOUNT_INFO}[name]    ${DEFAULT_EMAIL}    Hello! I really like this product!
+    Click Submit Review
+    Verify Review Success Message
