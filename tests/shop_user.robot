@@ -17,10 +17,7 @@ ${ORDER_COMMENT}    Test comment
 
 *** Test Cases ***
 Place Order And Register While Checkout
-    ${prod1}    Add Product To Cart    3
-    Click Modal Continue Shopping
-    ${prod2}    Add Product To Cart    4
-    VAR    @{expected_products}    ${prod1}    ${prod2}
+    ${expected_products}    Add Products To Cart    3    4
     Go To Cart
     Click Proceed To Checkout
     Click Modal RegisterLogin Link
@@ -37,4 +34,7 @@ Place Order And Register While Checkout
 Place Order And Register Before Checkout
     Click Signup Tab Link And Verify Login Page Is Visible
     Common Signup Procedure    ${DEFAULT_ACCOUNT_INFO}
-
+    ${expected_products}    Add Products To Cart    3    4
+    Go To Cart
+    Click Proceed To Checkout
+    Verify Checkout    ${DEFAULT_ACCOUNT_INFO}    ${expected_products}    ${ORDER_COMMENT}

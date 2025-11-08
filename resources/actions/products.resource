@@ -1,4 +1,5 @@
 *** Settings ***
+Library     Collections
 Library     Browser
 Resource    ../pageobjects/common.resource
 Resource    ../pageobjects/cart.resource
@@ -44,6 +45,20 @@ Add Product To Cart
     Sleep    1
     Click    ${product_path}/a
     RETURN    ${product_info}
+
+Add Products To Cart
+    [Documentation]    Receives as argument a list of product indexes. Adds those products to cart and
+    ...    returns a list of the added products' info.
+    [Arguments]    @{args}
+    VAR    ${product}
+    VAR    @{product_list}
+    FOR    ${Nth_product}    IN    @{args}
+        ${product}    Add Product To Cart    ${Nth_product}
+        Click Modal Continue Shopping
+        Append To List    ${product_list}    ${product}
+    END
+    RETURN    ${product_list}
+    
 
 Add N Of A Product To Cart
     [Arguments]    ${n}
