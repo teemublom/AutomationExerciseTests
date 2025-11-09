@@ -73,7 +73,7 @@ Verify Both Addresses During Checkout
     Click Proceed To Checkout
     Verify Address    ${DEFAULT_ACCOUNT_INFO}    delivery
     Verify Address    ${DEFAULT_ACCOUNT_INFO}    invoice
-    # Click Delete Account
+    Click Delete Account
 
 Download Invoice After Purchase Order
     [Setup]    Open Automation Exercise Page
