@@ -25,12 +25,14 @@ Register User With Existing Email
 Login With Existing Account And Logout
     Create Account With API    ${DEFAULT_ACCOUNT_INFO}
     Login Test Setup
+    Verify Login    ${DEFAULT_USERNAME}
     Click Logout Button
     Delete Account With API    ${DEFAULT_LOGIN_INFO}
 
 Login With Existing Account And Delete Account
     Create Account With API    ${DEFAULT_ACCOUNT_INFO}
     Login Test Setup
+    Verify Login    ${DEFAULT_USERNAME}
     Click Delete Account
 
 Login With Incorrect Account Credentials
@@ -50,4 +52,3 @@ Login Test Setup
     Open Automation Exercise Page
     Click Signup Tab Link And Verify Login Page Is Visible
     Enter Login Info And Click Login    ${email}    ${password}
-    Verify Login    ${DEFAULT_USERNAME}

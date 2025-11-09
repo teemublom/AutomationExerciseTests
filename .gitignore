@@ -1,6 +1,6 @@
-results/log.html
-results/output.xml
+results
 log.html
 output.xml
 report.html
-results/playwright-log.txt
+playwright-log.txt
+browser
