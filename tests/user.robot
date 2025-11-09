@@ -1,43 +1,40 @@
 *** Settings ***
 Resource            ../resources/common.resource
 Resource            ../resources/actions/login.resource
-Resource            ../resources/api.resource
 Variables           ../resources/login_info.yaml
 
-Test Teardown       Common Test Teardown
+Test Setup          Create Account With API    ${DEFAULT_ACCOUNT_INFO}
+Test Teardown       Common User Test Teardown    ${DEFAULT_LOGIN_INFO}
 
 
 *** Test Cases ***
 Register New User
+    [Setup]    No Operation
     Signup Test Setup
     Enter All Account Information    ${DEFAULT_ACCOUNT_INFO}
     Click Create Account
     Click Continue Button
     Verify Login    ${DEFAULT_USERNAME}
-    Delete Account With API    ${DEFAULT_LOGIN_INFO}
 
 Register User With Existing Email
-    Create Account With API    ${DEFAULT_ACCOUNT_INFO}
     Signup Test Setup
     Verify Error Email Address Already Exist Is Visible
-    Delete Account With API    ${DEFAULT_LOGIN_INFO}
 
 Login With Existing Account And Logout
-    Create Account With API    ${DEFAULT_ACCOUNT_INFO}
     Login Test Setup
     Verify Login    ${DEFAULT_USERNAME}
     Click Logout Button
-    Delete Account With API    ${DEFAULT_LOGIN_INFO}
 
 Login With Existing Account And Delete Account
-    Create Account With API    ${DEFAULT_ACCOUNT_INFO}
     Login Test Setup
     Verify Login    ${DEFAULT_USERNAME}
     Click Delete Account
 
 Login With Incorrect Account Credentials
+    [Setup]    No Operation
     Login Test Setup    wrong.email@test.com    67890
     Verify Error Your Email Or Password Is Incorrect Is Visible
+    [Teardown]    No Operation
 
 
 *** Keywords ***

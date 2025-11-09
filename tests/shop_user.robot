@@ -8,7 +8,7 @@ Variables           ../resources/login_info.yaml
 Variables           ../resources/card_info.yaml
 
 Test Setup          Open Automation Exercise Page
-Test Teardown       Common Test Teardown
+Test Teardown       Common User Test Teardown    ${DEFAULT_LOGIN_INFO}
 
 
 *** Variables ***
@@ -56,7 +56,6 @@ Search Products And Verify Cart After Login
     Enter Login Info And Click Login    ${DEFAULT_EMAIL}    ${DEFAULT_PASSWORD}
     Go To Cart Page
     Verify Cart Contents    ${expected_products}
-    Delete Account With API    ${DEFAULT_LOGIN_INFO}
 
 Add Review On Product
     Click First Products View Product Button
@@ -64,11 +63,12 @@ Add Review On Product
     Enter Review Details    ${DEFAULT_ACCOUNT_INFO}[name]    ${DEFAULT_EMAIL}    Hello! I really like this product!
     Click Submit Review
     Verify Review Success Message
+    [Teardown]    No Operation
 
 Verify Both Addresses During Checkout
     Click Signup Tab Link And Verify Login Page Is Visible
     Common Signup Procedure    ${DEFAULT_ACCOUNT_INFO}
-    ${expected_products}    Add Products To Cart    2    4
+    Add Products To Cart    2    4
     Go To Cart Page
     Click Proceed To Checkout
     Verify Address    ${DEFAULT_ACCOUNT_INFO}    delivery

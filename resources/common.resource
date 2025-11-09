@@ -1,4 +1,5 @@
 *** Settings ***
+Resource    api.resource
 Resource    pageobjects/home.resource
 Resource    pageobjects/common.resource
 Library     Browser
@@ -20,3 +21,8 @@ Open Automation Exercise Page
 Common Test Teardown
     Close Context
     Close Browser
+
+Common User Test Teardown
+    [Arguments]    ${login_info}
+    Delete Account With API    ${login_info}
+    Common Test Teardown
