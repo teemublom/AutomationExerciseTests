@@ -29,3 +29,10 @@ Scroll To Recommended Items
 
 Click A Recommended Item
     Click    //div[@id="recommended-item-carousel"] >> //div[@class="item active"]/div[1] >> text=Add to cart
+
+Click Up Arrow
+    Click    //a[@id="scrollUp"]
+
+Verify Intro Text Is Visible
+    Wait For Elements State
+    ...    //div[@id="slider-carousel"] >> //div[@class="item active"] >> text=Full-Fledged practice website for Automation Engineers

@@ -39,3 +39,9 @@ Add Recommended Item
     VAR    @{expected_items}    ${product1}
     Click Modal View Cart
     Verify Cart Contents    ${expected_items}
+
+Verify Up Arrow Functionality
+    Scroll To    vertical=100%
+    Verify Footer Subscription Text Is Visible
+    Click Up Arrow
+    Verify Intro Text Is Visible
