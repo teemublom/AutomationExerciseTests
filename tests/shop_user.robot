@@ -63,3 +63,13 @@ Add Review On Product
     Enter Review Details    ${DEFAULT_ACCOUNT_INFO}[name]    ${DEFAULT_EMAIL}    Hello! I really like this product!
     Click Submit Review
     Verify Review Success Message
+
+Verify Both Addresses During Checkout
+    Click Signup Tab Link And Verify Login Page Is Visible
+    Common Signup Procedure    ${DEFAULT_ACCOUNT_INFO}
+    ${expected_products}    Add Products To Cart    2    4
+    Go To Cart Page
+    Click Proceed To Checkout
+    Verify Address    ${DEFAULT_ACCOUNT_INFO}    delivery
+    Verify Address    ${DEFAULT_ACCOUNT_INFO}    invoice
+    Click Delete Account

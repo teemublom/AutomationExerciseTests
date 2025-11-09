@@ -71,7 +71,8 @@ Add Recommended Item To Cart
     [Documentation]    Adds the N:th product to cart.
     ...    Returns product name and price in a dictionary
     [Arguments]    ${Nth_product}
-    VAR    ${product_path}    //div[@id="recommended-item-carousel"] >> //div[@class="item active"]/div[${Nth_product}]/div/div/div
+    VAR    ${product_path}
+    ...    //div[@id="recommended-item-carousel"] >> //div[@class="item active"]/div[${Nth_product}]/div/div/div
     ${product_name}    Get Text    ${product_path}/p
     ${product_price}    Get Text    ${product_path}/h2
     VAR    &{product_info}    name=${product_name}    price=${product_price}    qty=1
@@ -94,7 +95,7 @@ Go To Cart Page
 
 Verify Checkout
     [Arguments]    ${acc_info}    ${expected_products}    ${comment}
-    Verify Delivery Address    ${acc_info}
+    Verify Address    ${acc_info}    delivery
     Verify Cart Contents    ${expected_products}
     Enter Order Comment    ${comment}
 
