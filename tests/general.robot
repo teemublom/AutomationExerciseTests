@@ -45,3 +45,9 @@ Verify Up Arrow Functionality
     Verify Footer Subscription Text Is Visible
     Click Up Arrow
     Verify Intro Text Is Visible
+
+Verify Scroll Up Functionality
+    Scroll To    vertical=100%
+    Verify Footer Subscription Text Is Visible
+    Scroll To
+    Verify Intro Text Is Visible
