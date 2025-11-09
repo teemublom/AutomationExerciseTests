@@ -1,4 +1,5 @@
 *** Settings ***
+Library             OperatingSystem
 Resource            ../resources/common.resource
 Resource            ../resources/actions/products.resource
 Resource            ../resources/actions/login.resource
@@ -72,4 +73,21 @@ Verify Both Addresses During Checkout
     Click Proceed To Checkout
     Verify Address    ${DEFAULT_ACCOUNT_INFO}    delivery
     Verify Address    ${DEFAULT_ACCOUNT_INFO}    invoice
+    # Click Delete Account
+
+Download Invoice After Purchase Order
+    [Setup]    Open Automation Exercise Page
+    ${expected_products}    Add Products To Cart    1    3    4
+    Go To Cart Page
+    Click Proceed To Checkout
+    Click Modal RegisterLogin Link
+    Common Signup Procedure    ${DEFAULT_ACCOUNT_INFO}
+    Go To Cart Page
+    Common Checkout Procedure    ${DEFAULT_ACCOUNT_INFO}    ${expected_products}    ${ORDER_COMMENT}    ${CARD_INFO}
+    ${dl_promise}    Promise To Wait For Download
+    Click Download Invoice
+    ${file_obj}    Wait For    ${dl_promise}
+    File Should Exist    ${file_obj}[saveAs]
+    Should Be True    ${{ bool('${file_obj.suggestedFilename}') }}
+    checkout.Click Continue Button
     Click Delete Account

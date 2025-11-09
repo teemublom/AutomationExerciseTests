@@ -28,3 +28,9 @@ Enter Order Comment
 
 Click Place Order
     Click    //a[@href="/payment"]
+
+Click Continue Button
+    Click    //a[@data-qa="continue-button"]
+
+Click Download Invoice
+    Click    text=Download Invoice
